@@ -33,7 +33,24 @@ denumire.addEventListener("change",(e)=>{
     })
 })
 
+let listContainer=document.querySelector(".container");
+let btnAdd=document.querySelector(".add");
 
+let inp1=document.getElementById("denumire");
+let inp2=document.getElementById("culoare");
+let inp3=document.getElementById("material");
+let inp4=document.getElementById("pret");
 
+btnAdd.addEventListener("click",()=>{
+ let mobila={denumire:inp1.value,culoare:inp2.value,material:inp3.value,pret:+inp4.value};
+
+ addMobila(mobila).then(data=>{
+    let container=document.querySelector(".container");
+
+    let t=createRow(data);
+
+    container.appendChild(t);
+ })
+})
 
 
