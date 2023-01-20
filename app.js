@@ -1,3 +1,11 @@
+let listContainer=document.querySelector(".container");
+let btnAdd=document.querySelector(".add");
+
+let inp1=document.getElementById("denumire");
+let inp2=document.getElementById("culoare");
+let inp3=document.getElementById("material");
+let inp4=document.getElementById("pret");
+
 fetch("http://localhost:8080/api/v1/mobile").then(data=>{
     return data.json();
 }).then(data=>{
@@ -10,16 +18,7 @@ fetch("http://localhost:8080/api/v1/mobile/denumire").then(data=>{
     createOptions(data);
 })
 
-function createOptions(denumiri){
-    let denumirile=document.querySelector(".mobile");
-    for(let i=0;i<denumiri.length;i++){
-        let option=document.createElement('option')
-        
-        option.value=denumiri[i];
-        option.textContent=denumiri[i];
-        denumirile.appendChild(option);
-     }
-}
+
 let denumire=document.querySelector(".mobile");
 
 denumire.addEventListener("change",(e)=>{
@@ -33,13 +32,7 @@ denumire.addEventListener("change",(e)=>{
     })
 })
 
-let listContainer=document.querySelector(".container");
-let btnAdd=document.querySelector(".add");
 
-let inp1=document.getElementById("denumire");
-let inp2=document.getElementById("culoare");
-let inp3=document.getElementById("material");
-let inp4=document.getElementById("pret");
 
 btnAdd.addEventListener("click",()=>{
  let mobila={denumire:inp1.value,culoare:inp2.value,material:inp3.value,pret:+inp4.value};
@@ -53,4 +46,12 @@ btnAdd.addEventListener("click",()=>{
  })
 })
 
+
+
+let containerSelect=document.querySelector(".mobile");
+
+getAllDenumiri().then((data)=>{
+    createOptions(data);
+    console.log(data);
+});
 

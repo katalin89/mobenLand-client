@@ -9,7 +9,7 @@ function createRow(mobila){
 
     <td>${mobila.pret}</td>
     `
-console.log(mobila.denumire)
+
     return tr;
 }
 
@@ -18,7 +18,7 @@ function attachRows(arr){
     container.innerHTML="";
     for(let i=0;i<arr.length;i++){
         container.appendChild(createRow(arr[i]));
-        console.log(arr[i]);
+        
     }
 }
 
@@ -38,4 +38,16 @@ function returnMobila(data,denumire){
         }
     }
     return -1;
+}
+
+
+function createOptions(denumiri){
+    let denumirile=document.querySelector(".mobile");
+    for(let i=0;i<denumiri.length;i++){
+        let option=document.createElement('option')
+        
+        option.value=denumiri[i];
+        option.textContent=denumiri[i];
+        denumirile.appendChild(option);
+     }
 }

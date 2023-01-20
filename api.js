@@ -11,7 +11,7 @@ function api(path,method,body=null){
     if(body!==null){
         options.body=JSON.stringify(body);
     }
-    return fetch;(url,options);
+    return fetch(url,options);
 }
 
 //get allMObile
@@ -24,26 +24,24 @@ async function getAllMobile(){
 }
 
 async function addMobila(mobila){
-    let data=await api("add",'POST',car);
+    let data=await api("add",'POST',mobila);
 
     return data.json();
 }
 
-//getAllCArs
+async function getAllDenumiri(){
+    let data=await api("mobile/denumire",'GET')
 
-/*
+    data=await data.json();
 
+    return data;
+}
 
-//functie care adauga o masina
+async function getAllMobilaByDenumire(denumire){
+    let data=await api(`mobila/${denumire}`,'GET');
 
-async function addCar(car){
+    data=await data.json();
 
-
-
-    let data= await api("add",'POST',car);
-
-
-    return data.json();
-  
-
-}*/
+    
+    return data;
+}
