@@ -52,6 +52,6 @@ let containerSelect=document.querySelector(".mobile");
 
 getAllDenumiri().then((data)=>{
     createOptions(data);
-    console.log(data);
+   
 });
 
