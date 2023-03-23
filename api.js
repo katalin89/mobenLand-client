@@ -1,5 +1,5 @@
 function api(path,method,body=null){
-    const url="http://localhost:8080/api/v1/"+path;
+    const url="http://localhost:8080/api/v1/mobila/"+path;
 
     const options={
         method,
@@ -17,7 +17,7 @@ function api(path,method,body=null){
 //get allMObile
 
 async function getAllMobile(){
-    let data=await api("mobile",'GET');
+    let data=await api("all",'GET');
     data=await data.json();
 
     return data;
