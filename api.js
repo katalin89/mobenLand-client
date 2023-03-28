@@ -30,7 +30,7 @@ async function addMobila(mobila){
 }
 
 async function getAllDenumiri(){
-    let data=await api("mobile/denumire",'GET')
+    let data=await api("denumire",'GET')
 
     data=await data.json();
 
