@@ -1,12 +1,12 @@
 function api(path,method,body=null){
-    const url="http://localhost:8080/api/v1/"+path;
+    const url="http://localhost:8080/api/v1/mobile/"+path;
 
     const options={
         method,
         headers:{
-            'Content-Type':'aplication/json;charset=utf-8',
+            'Content-Type':'application/json;charset=utf-8',
         },
-        mode:"cors"
+       
     };
     if(body!==null){
         options.body=JSON.stringify(body);
@@ -17,7 +17,7 @@ function api(path,method,body=null){
 //get allMObile
 
 async function getAllMobile(){
-    let data=await api("mobile",'GET');
+    let data=await api("all",'GET');
     data=await data.json();
 
     return data;
@@ -26,11 +26,11 @@ async function getAllMobile(){
 async function addMobila(mobila){
     let data=await api("add",'POST',mobila);
 
-    return data.json();
+    return data;
 }
 
 async function getAllDenumiri(){
-    let data=await api("mobile/denumire",'GET')
+    let data=await api("denumire",'GET')
 
     data=await data.json();
 
@@ -43,5 +43,50 @@ async function getAllMobilaByDenumire(denumire){
     data=await data.json();
 
     
+    return data;
+}
+
+
+async function deleteMobila(mobilaId){
+    let data=await api(`delete/${mobilaId}`,'DELETE');
+}
+
+async function updateCar(){
+    let data=await api(`update`,'PUT');
+
+    return data;
+}
+async function sortByDenumire(){
+     
+    let data=await api(`sortByDenumire`,'GET');
+
+    data=await data.json(data)
+
+    return data;
+}
+
+async function sortByCuloare(){
+
+    let data=await api(`sortByCuloare`,'GET');
+
+    data=await data.json(data);
+
+    return data;
+}
+
+async function sortByMaterial(){
+
+    let data=await api(`sortByMaterial`,'GET');
+
+    data=await  data.json(data);
+
+    return data;
+}
+
+async function sortByPret(){
+    let data= await api(`sortByPret`,'GET');
+
+    data=await data.json(data);
+
     return data;
 }
