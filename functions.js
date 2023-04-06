@@ -13,9 +13,10 @@ async function attachHomePage(){
                 <tr class="container-sort">
                     <th class="id">Id</th>
                     <th class="denumire">Denumire</th>
-                    <th class="culoare>Culoare</th>
+                    <th class="culoare">Culoare</th>
                     <th class="material">Material</th>
                     <th class="pret">Pret</th>
+                    
                 </tr>
             </thead>
 
@@ -30,7 +31,7 @@ async function attachHomePage(){
 
     let containerSort=document.querySelector(".container-sort");
     
-    containerSort.addEventListener(".click",async(e)=>{
+    containerSort.addEventListener("click",async(e)=>{
         e.preventDefault;
         let data=e.target;
 
@@ -106,7 +107,7 @@ async function attachUpdatePage(mobila){
     let container=document.querySelector(".container");
 
     container.innerHTML = ` <h1>Update Mobila</h1> 
-    <input name="mobilaId" class="mobilaId" type="hidden" value="${mobila.carId}"/>
+    <input name="mobilaId" class="mobilaId" type="hidden" value="${mobila.mobilaId}"/>
     
     
     <ul class="error">
@@ -206,16 +207,18 @@ btnUpdate.addEventListener("click",async()=>{
 
     let btnDelete=document.querySelector(".delete");
 
-    btnDelete.addEventListener("click",async()=>{
+    btnDelete.addEventListener("click", async () => {
+        let input = document.querySelector(".mobilaId");
 
-        let input=document.querySelector(".mobilaId");
-
-        let mobilaId=input.value;
-
-        let data=await deleteMobila(mobilaId);
-
+        console.log(input);
+    
+        let mobilaId = input.value;
+        console.log(mobilaId);
+    
+        let data = await deleteMobila(mobilaId);
+    
         attachHomePage();
-        });
+      });
 
 }
 

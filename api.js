@@ -49,10 +49,11 @@ async function getAllMobilaByDenumire(denumire){
 
 async function deleteMobila(mobilaId){
     let data=await api(`delete/${mobilaId}`,'DELETE');
-}
+    console.log(mobilaId);
+ }
 
-async function updateCar(){
-    let data=await api(`update`,'PUT');
+async function updateMobila(mobila){
+    let data=await api(`update`,'PUT',mobila);
 
     return data;
 }
